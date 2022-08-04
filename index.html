@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock,Paper and Scissors Game</title>
+</head>
+<body>
+    <h1>Rock,Paper and Scissors game</h1>
+    <p>The game will start after five seconds, so take time to read How to play the game if you doesn't know,before playing </p>
+    <p><a href ="https://www.wikihow.com/Play-Rock,-Paper,-Scissors">How to play</a></p>
+    <p>This game doesn't have user interface for now so you will be prompted to put your value</p>
+    <p>Good luck</p>
+     <script>
+        //A simple Rock,Paper and scissors game 
+
+        //This game is played against computer
+
+        function game(){
+        //set Array to hold the strings value for computer
+        let Arr = ['rock','scissors','paper'];
+        //set computer count
+        let computerCount = 0;
+        //set user count
+        let userCount = 0;
+        //loop five times to create the rounds for the game
+        for(let i = 1; i <= 5; i++){
+            // prompt the user for input of value
+            let userInput = prompt('choose from Rock,Paper or Scissors').toLowerCase();
+            //create a random value for the computer
+            let random = Arr[Math.floor(Math.random() * Arr.length)].toLowerCase();
+            // test for conditions
+            if(userInput === 'rock' && random === 'scissors'){
+             userCount += 1;
+             alert(`human's ${userInput} beats computer's ${random} so human's count is ${userCount}`);
+            }else if(random === 'rock' && userInput === 'scissors'){
+                computerCount += 1;
+                alert(`computer's ${random} beats human's ${userInput} so computer count is ${computerCount}`);
+            }
+            else if(userInput === 'paper' && random === 'rock'){
+                userCount += 1;
+                alert(` human's ${userInput} beats computer's ${random} so human's count is ${userCount}`);
+            }else if(random === 'paper' && userInput ==='rock'){
+                computerCount += 1;
+                alert(`computer's ${random} beats human's ${userInput} so computer's count is ${computerCount}`);
+            }else if(userInput === 'scissors' && random === 'paper' ){
+                  userCount += 1;
+                  alert(`human's ${userInput} beats computer's ${random} so human's count is ${userCount}`);
+            }else if(random === 'scissors' && userInput === 'paper'){
+                computerCount += 1;
+                 alert(`computer's ${random} beats human's ${userInput} so computer count is ${computerCount}`);
+            }
+            else if(random === userInput){
+                alert(`human's ${userInput} and computer's ${random} are equal so the count is ${userCount} and ${computerCount}`)
+            }else{
+                alert('put either rock, scissors or paper or read how to play the game at wiki how');
+            }
+        }
+        if(userCount > computerCount){
+           document.write(`Human win with ${userCount} count ahead of computer's count which is ${computerCount} count`);
+            console.log('hahaha!!! computer is a failure')
+        }else if(computerCount > userCount){
+            document.write(`The computer win with ${computerCount} count ahead of Human's count which is ${userCount} count`);
+            console.log('Hahaha!!! you human let computer to win you');
+        }else{
+            document.write('nobody wins');
+        }
+    }
+    function timeout(){
+        setTimeout(game, 5000);
+    }
+    timeout();
+        
+     </script>
+</body>
+</html>
